@@ -1,8 +1,6 @@
 class SearchController < ApplicationController
   def index
-    conn = Faraday.new(:url => 'https://api.bestbuy.com')
-    response = conn.get "/v1/stores(area(#{params['q']},25))?format=json&show=name,city,distance,phone,storeType&pageSize=15&apiKey=#{ENV['bestbuy_api_key']}"
-    @results = JSON.parse(response.body)
-    # byebug
+    @results = BestbuyService.location_search(params['q'])
+    @stores = Location.nearby_locations(params['q'])
   end
 end
