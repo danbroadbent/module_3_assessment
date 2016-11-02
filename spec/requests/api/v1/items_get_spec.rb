@@ -8,14 +8,11 @@ describe 'api returns a list of items' do
     get '/api/v1/items'
     items = JSON.parse(response.body)
     expect(response.status).to eq(200)
-    # expect(response.class).to eq(JSON)
+    expect(response['Content-Type']).to eq("application/json; charset=utf-8")
     expect(items.count).to eq(3)
-    expect(items[0].id).to eq(1)
-    expect(items[0].name).to eq('user 1')
-    expect(items[0].description).to eq('description 1')
-    expect(items[0].image_url).to eq('image.url')
-    # When I send a GET request to /api/v1/items
-    # I receive a 200 JSON response containing all items
-    # And each item has an id, name, description, and image_url but not the created_at or updated_at
+    expect(items[0]['id']).to eq(1)
+    expect(items[0]['name']).to eq('user 1')
+    expect(items[0]['description']).to eq('description 1')
+    expect(items[0]['image_url']).to eq('image.url')
   end
 end
