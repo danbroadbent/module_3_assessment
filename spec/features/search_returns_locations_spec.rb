@@ -15,11 +15,11 @@ RSpec.feature 'search returns nearby locations' do
     # And I should see a message that says 17 Total Stores
     # within how many childeren?
     # And I should see exactly 15 results
-    expect(page).to have_content('name')
-    expect(page).to have_content('city')
-    expect(page).to have_content('distance')
-    expect(page).to have_content('phone')
-    expect(page).to have_content('store type')
+    expect(page).to have_content('Name: Cherry Creek Shopping Center')
+    expect(page).to have_content('City: Denver')
+    expect(page).to have_content('Distance: 3.25')
+    expect(page).to have_content('Phone Number: 303-270-9189')
+    expect(page).to have_content('Store Type: Mobile')
     # And I should see the long name, city, distance, phone number and store type for each of the 15 results
   end
 end

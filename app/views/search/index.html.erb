@@ -1,3 +1,13 @@
 <h1>Search Results</h1>
 <h2>Stores within 25 miles of <%= params['q'] %>:</h2>
 <h3><%= @results['total'] %> Total Stores</h3>
+<h4>Stores:</h4>
+<% @results['stores'].each do |store| %>
+<div class="store">
+  <p>Name: <%= store['name'] %></p>
+  <p>City: <%= store['city'] %></p>
+  <p>Distance: <%= store['distance'] %> Miles</p>
+  <p>Phone Number: <%= store['phone'] %></p>
+  <p>Store Type: <%= store['storeType'] %></p>
+</div>
+<% end %>
