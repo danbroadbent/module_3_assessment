@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'api returns a list of items' do
-  it 'get request to items endpoint' do
+describe 'api returns an item' do
+  it 'get request to item id endpoint' do
     Item.create(id: 1, name: 'user 1', description: 'description 1', image_url: 'image.url')
     get '/api/v1/items/1'
     item = JSON.parse(response.body)
