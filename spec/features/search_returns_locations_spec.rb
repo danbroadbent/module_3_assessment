@@ -4,8 +4,8 @@ RSpec.feature 'search returns nearby locations' do
   scenario 'user enters a zip into the search' do
     # When I visit "/"
     visit '/'
-    fill_in('80202')
-    click 'search'
+    fill_in 'Search', with: '80202'
+    click_on 'Search'
     # And I fill in a search box with 80202 and click search
     expect(current_path).to eq('/search')
     # Then my current path should be /search ignoring pars
